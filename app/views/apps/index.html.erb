@@ -1,41 +1,44 @@
-<h1>Listing apps</h1>
+<div class="page-header">
+  <h1>Apps <small>Apps Management</small></h1>
+</div>
 <p align="right">
-	<%= link_to 'Log out', :controller => :developer_login, action: 'logout' %>
+	<%= link_to 'Log out', {:controller => :developer_login, action: 'logout'}, :class => 'btn btn-primary' %>
 </p>
 <p align="right">
-	<%= link_to 'Accounts', developers_path %>
+	<%= link_to 'Accounts', developers_path, :class => 'btn btn-primary' %>
 </p>
 <p align="right">
-	<%= link_to 'Account_setting', developer_path(session[:developer_id]) %>
+	<%= link_to 'Account_setting', developer_path(session[:developer_id]), :class => 'btn btn-primary' %>
 </p>
-<table>
-  <thead>
-    <tr>
-      <th>Icon</th>
-      <th>Name</th>
-      <th>App key</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
+<div class="panel panel-default">
+    <div class="panel-heading">Panel heading</div>
+    <div class="panel-body">App is...</div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Icon</th>
+          <th>Name</th>
+          <th>App key</th>
+          <th>Control</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @apps.each do |app| %>
-      <tr>
-        <td><%= app.icon %></td>
-        <td><%= app.name %></td>
-        <td><%= app.app_key %></td>
-        <td><%= link_to 'Show', app %></td>
-        <td><%= link_to 'Edit', edit_app_path(app) %></td>
-        <td><%= link_to 'Destroy', app, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
+      <tbody>
+        <% @apps.each do |app| %>
+        <tr>
+          <td><%= app.icon %></td>
+          <td><%= app.name %></td>
+          <td><%= app.app_key %></td>
+          <td><%= link_to 'Show', app, :class => 'btn btn-success' %>
+              <%= link_to 'Edit', edit_app_path(app), :class => 'btn btn-info' %>
+              <%= link_to 'Destroy', app, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-danger' %></td>
+        </tr>
+        <% end %>
+      </tbody>
+  </table>
+</div>
 <br>
 
-<%= link_to 'New App', new_app_path %>
+<%= link_to 'New App', new_app_path, :class => 'btn btn-primary' %>
 <% #debug request.protocol %>
 <% #debug request.host_with_port %>
