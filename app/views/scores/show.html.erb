@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Leaderboard:</strong>
+  <%= @score.leaderboard_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @score.user_id %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @score.value %>
+</p>
+
+<p>
+  <strong>Display string:</strong>
+  <%= @score.display_string %>
+</p>
+
+<%= link_to 'Edit', edit_app_leaderboard_score_path(@app, @leaderboard, @score) %> |
+<%= link_to 'Back', app_leaderboard_path(@app, @leaderboard) %>

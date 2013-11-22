@@ -1,0 +1,41 @@
+<h1>Listing apps</h1>
+<p align="right">
+	<%= link_to 'Log out', :controller => :developer_login, action: 'logout' %>
+</p>
+<p align="right">
+	<%= link_to 'Accounts', developers_path %>
+</p>
+<p align="right">
+	<%= link_to 'Account_setting', developer_path(session[:developer_id]) %>
+</p>
+<table>
+  <thead>
+    <tr>
+      <th>Icon</th>
+      <th>Name</th>
+      <th>App key</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apps.each do |app| %>
+      <tr>
+        <td><%= app.icon %></td>
+        <td><%= app.name %></td>
+        <td><%= app.app_key %></td>
+        <td><%= link_to 'Show', app %></td>
+        <td><%= link_to 'Edit', edit_app_path(app) %></td>
+        <td><%= link_to 'Destroy', app, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New App', new_app_path %>
+<% #debug request.protocol %>
+<% #debug request.host_with_port %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @app.icon %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @app.name %>
+</p>
+
+<p>
+  <strong>App key:</strong>
+  <%= @app.app_key %>
+</p>
+
+<p>
+  <strong>Leaderboard:</strong>
+  <%= link_to 'Leaderboard List', app_leaderboards_path(@app, nil) %>
+</p>
+
+<%= link_to 'Edit', edit_app_path(@app) %> |
+<%= link_to 'Back', apps_path %>

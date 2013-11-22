@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Icon:</strong>
+  <%= @leaderboard.icon %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @leaderboard.name %>
+</p>
+
+<p>
+  <strong>Scores List</strong>
+</p>
+<table>
+	<tr>
+		<td align="cneter">User Name</td>
+		<td align="center">Score</td>
+		<td align="center">Score Display</td>
+	</tr>
+  <% @scores.each do |score| %>
+	<tr>
+		<td align="center"><%= score.user.name %></td>
+		<td align="center"><%= score.value %></td>
+		<td align="center"><%= score.display_string %></td>
+	</tr>
+  <% end %>
+</table>
+<p align="center">
+<%= link_to 'Add Score', new_app_leaderboard_score_path(@app, @leaderboard, @score) %>
+</p>
+
+<%= link_to 'Edit', edit_app_leaderboard_path(@app,@leaderboard) %> |
+<%= link_to 'Back', app_leaderboards_path(@app) %>

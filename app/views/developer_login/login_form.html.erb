@@ -1,0 +1,22 @@
+<%= @error %>
+<%= form_tag :action => "login" do %>
+<table>
+	<tr>
+		<td>Email Account:</td>
+		<td><%= text_field_tag "email", "", :size => 15 %></td>
+	</tr>
+	<tr>
+		<td>Password:</td>
+		<td><%= password_field_tag "password", "", :size => 15 %></td>
+	</tr>
+		<td></td>
+		<td><%= submit_tag "로그인" %></td>
+	</tr>
+	<tr>
+		<td></td>
+		<td><%= link_to 'Sing up', new_developer_path %></td>
+	</tr>
+</table>
+<% end %>
+
+

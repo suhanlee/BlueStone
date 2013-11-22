@@ -1,0 +1,33 @@
+<h1>Listing scores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Leaderboard</th>
+      <th>User</th>
+      <th>Value</th>
+      <th>Display string</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @scores.each do |score| %>
+      <tr>
+        <td><%= score.leaderboard_id %></td>
+        <td><%= score.user_id %></td>
+        <td><%= score.value %></td>
+        <td><%= score.display_string %></td>
+        <td><%= link_to 'Show', score %></td>
+        <td><%= link_to 'Edit', edit_score_path(score) %></td>
+        <td><%= link_to 'Destroy', score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Score', new_app_leaderboard_score_path %>

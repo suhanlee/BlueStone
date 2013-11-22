@@ -1,0 +1,32 @@
+<h1>Listing leaderboards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Icon</th>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leaderboards.each do |leaderboard| %>
+      <tr>
+        <td><%= leaderboard.icon %></td>
+        <td><%= leaderboard.name %></td>
+        <td><%= #link_to 'Show', leaderboard
+			link_to 'Show', app_leaderboard_path(@app, leaderboard)
+ %></td>
+
+        <td><%= link_to 'Edit', edit_app_leaderboard_path(@app, leaderboard)  %></td>
+        <td><%= link_to 'Destroy', [@app, leaderboard], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Leaderboard', new_app_leaderboard_path %>
